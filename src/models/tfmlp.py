@@ -31,7 +31,7 @@ class TFMLP(MessagePassing):
     def forward(self, x, edge_index, edge_attr=None, **kwargs):
         # x has shape [N, in_channels]
         # edge_index has shape [2, E]
-
+        edge_attr = 0
         return self.propagate(edge_index, x=x, edge_attr=edge_attr)
 
     def message(self, x_i, x_j, edge_attr, index: Tensor, ptr: OptTensor, size_i: Optional[int]):
